@@ -17,16 +17,8 @@
 <body>
     <!-- nav -->
     <header class="site-header" role="banner">
-        <nav class="topbar" aria-label="Main navigation">
-            <div class="brand"></div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Intro</a></li>
-                <li><a href="#">Eco</a></li>
-                <li><a href="#">Thrift</a></li>
-                <li><a href="#">Digital</a></li>
-                <li><a href="#">Social</a></li>
-            </ul>
+
+
         </nav>
     </header>
 
@@ -43,6 +35,18 @@
                 <h1 class="hero-title">
                     Gen Z and the Rise of Sustainable Fashion
                 </h1>
+
+                <!-- BUTTON  -->
+                <button class="scroll-down-btn" onclick="scrollToSection()">
+                    Scroll to learn more 
+                   
+                </button>
+                <div class="scroll-arrows" onclick="scrollToSection()">
+                    <span class="arrow-layer"></span>
+                    <span class="arrow-layer"></span>
+                    <span class="arrow-layer"></span>
+                </div>
+                
             </div>
         </section>
 
@@ -102,12 +106,41 @@
                     Google Search Interest for the terms “Thrift,” “Vintage Clothing,” and “Poshmark”
                 </h2>
 
-                <!-- chart container (scrolls sideways) -->
-                <div class="chart-scroll-wrapper">
-                    <div class="chart-scroll-inner">
-                        <div id="comparisonTrendChart" class="vega-chart"></div>
+                <!-- fixed legend (does not scroll horizontally) -->
+                <div class="chart-legend-static">
+                    <span class="legend-item">
+                        <span class="legend-swatch legend-swatch-poshmark"></span>
+                        <span class="legend-label">Poshmark</span>
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-swatch legend-swatch-thrift"></span>
+                        <span class="legend-label">Thrift</span>
+                    </span>
+                    <span class="legend-item">
+                        <span class="legend-swatch legend-swatch-vintage"></span>
+                        <span class="legend-label">Vintage clothing</span>
+                    </span>
+                </div>
+
+                <!-- frame: y-axis label + scrollable chart -->
+                <div class="chart-frame">
+                    <div class="chart-y-axis-label">
+                        Search interest (0 to 100)
+                    </div>
+
+                    <!-- chart container (only this part scrolls sideways) -->
+                    <div class="chart-scroll-wrapper">
+                        <div class="chart-scroll-inner">
+                            <div id="comparisonTrendChart" class="vega-chart"></div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- fixed x-axis label -->
+                <div class="chart-x-axis-label">
+                    Year
+                </div>
+
                 <p class="chart-scroll-hint">
                     (Scroll horizontally to explore the timeline)
                 </p>
