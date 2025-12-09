@@ -155,21 +155,30 @@ document.addEventListener("DOMContentLoaded", () => {
         x: {
           field: "Month",
           type: "temporal",
-          title: "Year",
+          // we show "Year" in HTML instead
+          title: null,
           axis: {
-            format: "%Y",     // only show the year label
+            format: "%Y",
             tickCount: "year"
           }
         },
         y: {
           field: "Interest",
           type: "quantitative",
-          title: "Search interest (0 to 100)"
+          // we show "Search interest (0 to 100)" in HTML instead
+          title: null
         },
         color: {
           field: "Trend",
           type: "nominal",
-          title: "Search term"
+          // custom legend lives in HTML so hide built-in legend/title
+          title: null,
+          legend: null,
+          // lock colors to match static legend
+          scale: {
+            domain: ["Poshmark", "Thrift", "vintage clothing"],
+            range: ["#8AAA6F", "#f4a84f", "#f0727d"]
+          }
         },
         tooltip: [
           { field: "Month", type: "temporal", title: "Month" },
@@ -223,3 +232,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+/* ============================
+   Smooth Scroll to First Section
+   ============================ */
+
+   function scrollToSection() {
+    const nextSection = document.querySelector(".history-section");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }
